@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int NUM_ELEMENTS = 5;
+#define NUM_ELEMENTS 5
 
 int multiplyNumbers(int x, int y) {
     int product = x * y;
@@ -9,7 +9,7 @@ int multiplyNumbers(int x, int y) {
 }
 
 int main(void) {
-    int a, b = 5; //uninitvar, legacyUninitvar
+    int a = 5, b = 5; //uninitvar, legacyUninitvar
     int result = multiplyNumbers(a, b);
 
     int arr[NUM_ELEMENTS];
