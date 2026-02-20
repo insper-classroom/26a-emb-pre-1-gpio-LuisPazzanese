@@ -13,6 +13,8 @@ int main() {
   gpio_init(BTN_PIN2);
   gpio_init(LED_PIN1);
   gpio_init(LED_PIN2);
+  int counter1 = 0;
+  int counter2 = 0;
 
   gpio_set_dir(BTN_PIN1, GPIO_IN);
   gpio_set_dir(BTN_PIN2, GPIO_IN);
@@ -24,18 +26,26 @@ int main() {
 
   while (true) {
     if (!gpio_get(BTN_PIN1)) {
-      printf("Botao 1\n");
       gpio_put(LED_PIN1, true);
+      if (counter1 == 1){
+        gpio_put(LED_PIN1, false);
+        counter1 = 0;
+      }else{
+        counter1 +=1;
+      }
       while (!gpio_get(BTN_PIN1)) {
       };
-      gpio_put(LED_PIN1, false);
     }
     if (!gpio_get(BTN_PIN2)) {
-      printf("Botao 2\n");
       gpio_put(LED_PIN2, true);
+      if (counter2 == 1){
+        gpio_put(LED_PIN2, false);
+        counter2 = 0;
+      } else {
+        counter2 +=1;
+      }
       while (!gpio_get(BTN_PIN2)) {
       };
-      gpio_put(LED_PIN2, false);
     }
   }
 }
