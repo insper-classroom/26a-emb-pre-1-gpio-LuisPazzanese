@@ -7,9 +7,7 @@ int multiplyNumbers(int x, int y) {
 }
 
 int main(void) {
-    int a = 5;
-    int b = 5; //uninitvar, legacyUninitvar
-    int result = multiplyNumbers(a, b);
+    int result = multiplyNumbers(5,5);
 
     printf("Result: %d\n", result);
     return 0;
