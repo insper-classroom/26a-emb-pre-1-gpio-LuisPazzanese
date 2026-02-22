@@ -5,6 +5,8 @@
 const int FIRST_GPIO = 2;
 const int BTN_PIN = 28;
 
+int cnt = 0;
+int last_btn = 1; // Button not pressed (pulled up)
 
 int bits[10] = {
     0x3f,  // 0
@@ -35,9 +37,6 @@ void seven_seg_display() {
 }
 
 int main() {
-    int cnt = 0;
-    int last_btn = 1; // Button not pressed (pulled up)
-
     stdio_init_all();
 
     gpio_init(BTN_PIN);
